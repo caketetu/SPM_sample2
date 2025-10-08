@@ -37,7 +37,8 @@ struct sCycFunc {
 class MyModbus
     {
     public:
-        MyModbus(uint8_t dev_adr);
+        MyModbus();
+        uint8_t id;
         // void set_holding_regs(int adr, uint16_t *val_adr);
         // void set_input_regs(int adr, uint16_t *val_adr);
         int modbus_task(uint8_t *rbuf, int rl, uint8_t *s_buf);
@@ -51,8 +52,6 @@ class MyModbus
         sCycFunc cycfunc2;
         sCycFunc cycfunc3;
         sCycFunc cycfunc4;
-    private:
-        uint8_t id;
     };
      
 # endif //_MYMODBUS_H_

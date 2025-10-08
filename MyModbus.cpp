@@ -1,5 +1,7 @@
 // Modbus通信対応のスレーブデバイスのサンプル
 #include "MyModbus.h"
+#include "FS.h"
+#include "SPIFFS.h"
 
 #define UNKOWN_FUNC 1
 #define INVAILED_ADR 2
@@ -44,10 +46,7 @@ void make_exception_resp(uint8_t *buf, uint8_t id, uint8_t fc, uint8_t ec) {
   return;
 }
 
-MyModbus::MyModbus(uint8_t dev_id) {
-  id = dev_id;
-  uint16_t i = 0;
-}
+MyModbus::MyModbus(){}
 
 int MyModbus::modbus_task(uint8_t *rbuf, int rl, uint8_t *sbuf) {
   if (rbuf[0] == id) {
